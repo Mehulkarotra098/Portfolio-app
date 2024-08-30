@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ForgotPass from './assets/ForgotPassword.png'
+import ForgotPass from '../assets/ForgotPassword.png'
 
 
 function ForgotPassword() {
