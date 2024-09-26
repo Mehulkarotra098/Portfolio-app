@@ -5,6 +5,7 @@ import Login from './Auth/Login-1.jsx';
 import ForgotPassword from './Auth/Forgotpassword.jsx';
 import Homepage from './components/HomePage1.jsx'
 import Request from './components/Request.jsx'
+import ProfilePage from './components/ProfilePage.jsx'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/Request" element={<Request />} />
+        <Route path="/profilePage" component={<ProfilePage />} /> {/* Route for profile */}
       </Routes>
     </Router>
   );
