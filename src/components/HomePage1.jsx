@@ -3,9 +3,9 @@ import { useState } from "react";
 import Hariprabodham from '../assets/Hariprabodhamlogo.png';
 import Menu from '../assets/menu.png';
 import Bell from '../assets/bell.png';
-import { FaHome, FaStar, FaSearch, FaUserPlus } from 'react-icons/fa';
+import { FaHome, FaStar, FaSearch, FaUserPlus, FaFilter } from 'react-icons/fa';
 import { RiShareForwardFill } from "react-icons/ri";
-
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Homepage = () => {
   const [selectedGender, setSelectedGender] = useState("male");
@@ -80,42 +80,49 @@ const Homepage = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="relative mt-4 px-4">
+      <div className="relative px-4 mt-4">
         <input
           type="text"
           placeholder="Search"
-          className="w-full py-2 pl-4 pr-10 text-sm border rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full py-3 pl-10 pr-10 text-sm bg-[#ffffff] text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#F7F7F7] rounded-md"
+          style={{
+            border: "1px solid #EAEAEA",
+            borderRadius: "8px", // Reduced rounding for corners
+          }}
         />
-        <FaSearch className="absolute top-1/2 transform -translate-y-1/2 right-6 text-gray-500" />
+        <FaSearch className="absolute top-1/2 transform -translate-y-1/2 left-8 text-gray-500" />
       </div>
 
       {/* Gender Selection */}
-      <div className="flex justify-center space-x-4 mt-4">
+      <div className="flex justify-center space-x-2 mt-4">
         <button
           onClick={() => handleGenderSelect("male")}
-          className={`px-4 py-2 rounded-full border-2 font-semibold ${
+          className={`px-4 py-2 rounded-lg font-semibold flex items-center space-x-2 ${
             selectedGender === "male"
-              ? "bg-orange-400 text-white border-orange-400"
-              : "bg-white text-gray-800 border-gray-300"
+              ? "bg-[#FF9500] text-white border border-[#FF9500]"
+              : "bg-white text-gray-800 border border-gray-300"
           }`}
         >
-          Male
+          <BsFillPersonFill className="mr-2" />
+          <span className="text-lg">Male</span>
         </button>
         <button
           onClick={() => handleGenderSelect("female")}
-          className={`px-4 py-2 rounded-full border-2 font-semibold ${
+          className={`px-4 py-2 rounded-lg font-semibold flex items-center space-x-2 ${
             selectedGender === "female"
-              ? "bg-pink-500 text-white border-pink-500"
-              : "bg-white text-gray-800 border-gray-300"
+              ? "bg-[#000] text-white border border-black"
+              : "bg-white text-gray-800 border border-gray-300"
           }`}
         >
-          Female
+          <BsFillPersonFill className="mr-2" />
+          <span className="text-lg">Female</span>
         </button>
         <button
           onClick={() => console.log("Filter clicked")}
-          className="px-4 py-2 text-sm font-semibold text-blue-600"
+          className="flex items-center px-4 py-2 text-sm font-semibold text-gray-800 border border-gray-300 rounded-lg"
         >
-          Filter
+          <FaFilter className="mr-2" />
+          <span>Filter</span>
         </button>
       </div>
 
@@ -198,10 +205,10 @@ const Homepage = () => {
           >
             <FaStar
               className={`h-6 w-8 ${
-                activeTab === "profile" ? "text-[#F22509]" : "text-gray-400"
+                activeTab === "Star" ? "text-[#F22509]" : "text-gray-400"
               }`}
             />
-            {activeTab === "Star" && (
+            {activeTab === "Star" && ( 
               <div className="w-12 h-1 bg-[#F22509] rounded-t-full mt-1"></div>
             )}
           </button>
