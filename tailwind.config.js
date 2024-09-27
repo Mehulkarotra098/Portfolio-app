@@ -9,3 +9,5 @@ module.exports = {
   },
   plugins: [],
 }
+colors: {
+Redishorange:'rgb(242,37,9)'}

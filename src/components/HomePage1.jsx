@@ -5,15 +5,18 @@ import User from '../assets/user.png';
 import FemaleUser from '../assets/woman.png'; // Female user image
 import Menu from '../assets/menu.png';
 import Bell from '../assets/bell.png';
-import { FaHome, FaStar, FaSearch, FaUserPlus, FaFilter } from 'react-icons/fa';
+import { FaHome, FaStar, FaSearch, FaUserPlus, FaFilter, FaChevronRight } from 'react-icons/fa';
 import { RiShareForwardFill } from 'react-icons/ri';
 import GenderToggle from './GenderToggle';
-import ProfilePage from './ProfilePage.jsx';
+import MenuPage from './MenuPage'; // Import MenuPage
+
 
 const Homepage = () => {
   const [selectedGender, setSelectedGender] = useState('male');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   const profiles = [
     {
@@ -72,6 +75,11 @@ const Homepage = () => {
     },
   ];
 
+  //Side Menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   // Gender Toggle Handler
   const handleGenderChange = (gender) => {
     setSelectedGender(gender);
@@ -91,16 +99,19 @@ const Homepage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Top Bar */}
-      <div className="flex items-center justify-between px-4 py-2 bg-white shadow-sm">
-        <button>
-          <img src={Menu} alt="Menu" className="h-6" />
-        </button>
-        <img src={Hariprabodham} alt="Logo" className="h-10" />
-        <button>
-          <img src={Bell} alt="Notifications" className="h-6" />
-        </button>
-      </div>
+    {/* Side Menu */}
+    <MenuPage isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
+    {/* Top Bar */}
+    <div className="flex items-center justify-between px-4 py-2 bg-white shadow-sm">
+      <button onClick={toggleMenu}>
+        <img src={Menu} alt="Menu" className="h-6" />
+      </button>
+      <img src={Hariprabodham} alt="Logo" className="h-10" />
+      <button>
+        <img src={Bell} alt="Notifications" className="h-6" />
+      </button>
+    </div>
 
       {/* Search Bar with Gender Toggle */}
       <div className="flex justify-between items-center px-4 mt-4">
@@ -135,8 +146,8 @@ const Homepage = () => {
                 <p className="text-gray-600">
                   {profile.age} | {profile.location} | {profile.caste}
                 </p>
-                <Link to={<ProfilePage />}>
-                  <button className="mt-2 px-4 py-2 text-white bg-[#394D7F] rounded-full hover:bg-[#2b3b65]">
+                <Link to={`/profile/${profile.id}`}>
+                  <button className="mt-1 px-3 py-1 text-white bg-[#394D7F] rounded-full hover:bg-[#2b3b65]">
                     View Details
                   </button>
                 </Link>

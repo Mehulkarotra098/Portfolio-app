@@ -26,7 +26,7 @@ const GenderToggle = ({ onGenderChange }) => {
       />
       <div
         id="path"
-        className={`w-full h-full p-1 rounded-full transition-colors duration-800 ${isFemale ? 'bg-pink-100' : 'bg-gray-100'} shadow-lg`}
+        className={`w-full h-full p-1 rounded-full transition-colors duration-800 ${isFemale ? 'bg-orange-100' : 'bg-gray-100'} shadow-lg`}
       ></div>
       <div
         id="knob"
@@ -34,7 +34,7 @@ const GenderToggle = ({ onGenderChange }) => {
       >
         <div
           id="bow"
-          className={`absolute left-1/2 transform -translate-x-1/2 bottom-[-4px] w-3 transition-colors duration-200 ${isFemale ? 'text-pink-500' : 'text-blue-500'}`}
+          className={`absolute left-1/2 transform -translate-x-1/2 bottom-[-4px] w-3 transition-colors duration-200 ${isFemale ? 'text-red-500' : 'text-sky-900'}`}
         >
           <IoMdBowtie className="text-sm" />
         </div>
@@ -43,7 +43,7 @@ const GenderToggle = ({ onGenderChange }) => {
         {/* Female Text */}
         <div
           id="fe"
-          className={`transition-all duration-600 ${isFemale ? 'text-pink-500' : 'text-transparent'}`}
+          className={`transition-all duration-600 ${isFemale ? 'text-red-500' : 'text-transparent'}`}
         >
           FE
         </div>
@@ -51,11 +51,11 @@ const GenderToggle = ({ onGenderChange }) => {
         {/* Male Text */}
         <div
           id="male"
-          className={`relative transition-all duration-200 ${isFemale ? 'text-transparent' : 'text-blue-500'}`}
+          className={`relative transition-all duration-200 ${isFemale ? 'text-transparent' : 'text-sky-900'}`}
         >
           <span className={`relative z-10 transition-all duration-200 ${isFemale ? 'opacity-0' : 'opacity-100'}`}>MALE</span>
           <span
-            className={`absolute top-0 left-[50%] transform -translate-x-[50%] overflow-hidden whitespace-pre transition-all duration-200 ${isFemale ? 'text-pink-500 w-full' : 'w-0 text-transparent'}`}
+            className={`absolute top-0 left-[50%] transform -translate-x-[50%] overflow-hidden whitespace-pre transition-all duration-200 ${isFemale ? 'text-red-500 w-full' : 'w-0 text-transparent'}`}
           >
             MALE
           </span>
