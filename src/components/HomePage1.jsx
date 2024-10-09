@@ -10,7 +10,6 @@ import { RiShareForwardFill } from 'react-icons/ri';
 import GenderToggle from './GenderToggle';
 import MenuPage from './MenuPage'; // Import MenuPage
 
-
 const Homepage = () => {
   const [selectedGender, setSelectedGender] = useState('male');
   const [searchQuery, setSearchQuery] = useState('');
